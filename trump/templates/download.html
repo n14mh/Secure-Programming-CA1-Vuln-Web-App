@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Downloads{% endblock %}
+
+{% block content %}
+    <h2>Downloads Page</h2>
+    
+    <p>Click on the links below to download the files:</p>
+    <ul>
+        <li><a href="{{ url_for('download', file='lies.pdf') }}">Download the LIES!</a></li>
+        <li><a href="{{ url_for('download', file='platinum-plan.pdf') }}">Download the Platinum Plan</a></li>
+    </ul>
+{% endblock %}

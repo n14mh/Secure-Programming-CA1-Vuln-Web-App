@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+    <div style="max-width: 600px; margin: 50px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9;">
+        <h2 style="text-align: center;">Profile Page</h2>
+
+        {% if user %}
+            <div style="margin-bottom: 15px;">
+                <p><strong>Username:</strong> {{ user.username }}</p>
+				<br>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <h3>Card Details</h3>
+                <div style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; background-color: #ffffff;">
+                    {% for card in cards %}
+                        <p><strong>Card Number:</strong> {{ card.cardno }}</p>
+                        <p><strong>Expiry:</strong> {{ card.expiry }}</p>
+                        <p><strong>CVV:</strong> {{ card.cvv }}</p>
+                        <hr style="border: 0; border-top: 1px solid #ccc; margin: 15px 0;">
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            <p style="text-align: center; color: red;">User not found or unauthorized access.</p>
+        {% endif %}
+    </div>
+{% endblock %}
+

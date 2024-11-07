@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}We Love Donald{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <div id="mainpic">
+            </div>
+        </header>
+        <nav id="menu">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('quotes') }}">Quotes</a></li>
+				<li><a href="{{ url_for('search') }}">Search</a></li>
+				<li><a href="{{ url_for('comments') }}">Comments</a></li>
+				{% if 'user_id' in session %}
+					<li><a href="{{ url_for('download_page') }}">Downloads</a></li>
+				{% endif %}
+				<li>
+					{% if 'user_id' in session %}
+						<a href="{{ url_for('logout') }}">Logout</a>
+					{% else %}
+						<a href="{{ url_for('login') }}">Login</a>
+					{% endif %}
+				</li>
+				<li><a href="{{ url_for('sitemap') }}">Site Map</a></li>
+				
+
+				
+            </ul>
+        </nav>
+        <main id="content">
+            {% block content %}{% endblock %}
+        </main>
+        <footer id="footer">
+            <h3><a href="#">Copyright &copy; Donald. All Rights Reserved.</a></h3>
+        </footer>
+    </div>
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

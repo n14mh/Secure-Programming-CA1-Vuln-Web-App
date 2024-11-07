@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+    <h2>Search Page</h2>
+    
+    <form method="GET" action="{{ url_for('search') }}">
+        <label for="query">Search:</label>
+        <input type="text" id="query" name="query">
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if query %}
+        <h3>Search results for: {{ query|safe }}</h3>
+    {% endif %}
+{% endblock %}

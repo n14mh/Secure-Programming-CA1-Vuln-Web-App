@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div style="max-width: 400px; margin: 50px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9;">
+        <h2 style="text-align: center;">Login</h2>
+        <form method="POST" action="{{ url_for('login') }}">
+            <div style="margin-bottom: 15px;">
+                <label for="username" style="display: block; font-weight: bold; margin-bottom: 5px;">Username:</label>
+                <input type="text" id="username" name="username" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="password" style="display: block; font-weight: bold; margin-bottom: 5px;">Password:</label>
+                <input type="text" id="password" name="password" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            </div>
+            <div style="text-align: center;">
+                <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Login</button>
+            </div>
+        </form>
+        {% if error %}
+            <p style="color: red; text-align: center; margin-top: 15px;">{{ error }}</p>
+        {% endif %}
+    </div>
+{% endblock %}

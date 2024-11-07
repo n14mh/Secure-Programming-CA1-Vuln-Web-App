@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Panel{% endblock %}
+
+{% block content %}
+    <div style="max-width: 800px; margin: 50px auto; padding: 20px; border: 1px solid #cc0000; border-radius: 10px; background-color: #fff3f3;">
+        <h2 style="text-align: center; color: #cc0000;">Admin Panel</h2>
+
+        <div style="margin-bottom: 20px;">
+            <h3>User Management</h3>
+            <ul>
+                <li><a href="#">View All Users</a></li>
+                <li><a href="#">Add New User</a></li>
+                <li><a href="#">Delete User</a></li>
+            </ul>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <h3>Site Configuration</h3>
+            <ul>
+                <li><a href="#">View Site Settings</a></li>
+                <li><a href="#">Update Site Settings</a></li>
+            </ul>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <h3>Logs</h3>
+            <ul>
+                <li><a href="#">View Access Logs</a></li>
+                <li><a href="#">View Error Logs</a></li>
+                <li><a href="#">Download Logs</a></li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <button style="padding: 10px 20px; background-color: #cc0000; color: white; border: none; border-radius: 5px; cursor: pointer;">Logout</button>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block navigation %}
+    <ul>
+        <li><a href="{{ url_for('comments') }}">Comments</a></li>
+    </ul>
+{% endblock %}
+
+{% block title %}Comments{% endblock %}
+
+{% block content %}
+    <h2>Leave a comment for our great leader!</h2>
+
+    <form method="POST" action="{{ url_for('comments') }}" style="max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9;">
+        <div style="margin-bottom: 15px;">
+            <label for="username" style="display: block; font-weight: bold; margin-bottom: 5px;">Name:</label>
+            <input type="text" id="username" name="username" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label for="comment" style="display: block; font-weight: bold; margin-bottom: 5px;">Comment:</label>
+            <textarea id="comment" name="comment" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; height: 100px;"></textarea>
+        </div>
+
+        <div style="text-align: center;">
+            <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+        </div>
+    </form>
+
+    <h3>All Comments</h3>
+    <ul>
+        {% for comment in comments %}
+            <li><strong>{{ comment.username }}</strong>: {{ comment.text|safe }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
